@@ -1,8 +1,14 @@
-import { getJobs, getjobyId } from "./controllers/jobs.js";
+import { getJobs, getjobyId, createJob } from "./controllers/jobs.js";
 import { getCompanyById } from "./controllers/company.js";
 import { GraphQLError } from "graphql";
 
 export const resolvers = {
+  Mutation: {
+    createJob: (root, { title, description }) => {
+      const companyId = "FjcJCHJALA4i";
+      return createJob("FjcJCHJALA4i", title, description);
+    },
+  },
   Query: {
     jobs: () => getJobs(),
     job: (root, { id }) => {

@@ -17,3 +17,7 @@ type Company {
   name: String
   description: String
 }
+
+type Mutation {
+  createJob(title: String, description: String): Job
+}
