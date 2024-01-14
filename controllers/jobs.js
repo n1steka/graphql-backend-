@@ -9,3 +9,13 @@ export async function getJobs() {
     throw error;
   }
 }
+
+export async function getjobyId(id) {
+  try {
+    const job = await knex.table("job").first().where({ id });
+    return job;
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+    throw error;
+  }
+}
