@@ -4,6 +4,14 @@ type Query {
 
 type Job {
   id: ID
-  title: String
+  title: String!
+  description: String
+  date: String
+  company: company
+}
+
+type company {
+  id: ID
+  name: String
   description: String
 }

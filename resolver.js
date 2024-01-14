@@ -1,16 +1,12 @@
 import { getJobs } from "./controllers/jobs.js";
+import { getCompanyById } from "./controllers/company.js";
 
 export const resolvers = {
   Query: {
-    jobs:  () => {
-      try {
-        const jobs =  getJobs();
-        return jobs;
-      } catch (error) {
-        // Handle errors if necessary
-        console.error("Error fetching jobs:", error);
-        throw error; // You may want to handle this differently based on your needs
-      }
-    },
+    jobs: () => getJobs()
   },
+  Job: {
+    date: (root) => root.createdAt.slice(0, 10) , // Use the correct end index for date format "yyyy-mm-dd"
+    company : (root) => getCompanyById(root.companyId)
+}
 };
