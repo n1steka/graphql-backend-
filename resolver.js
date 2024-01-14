@@ -6,7 +6,7 @@ export const resolvers = {
     jobs: () => getJobs()
   },
   Job: {
-    date: (root) => root.createdAt.slice(0, 10) , // Use the correct end index for date format "yyyy-mm-dd"
+    date: (root) => root.createdAt.slice(0, 10) , 
     company : (root) => getCompanyById(root.companyId)
 }
 };
